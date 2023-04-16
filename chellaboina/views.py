@@ -70,8 +70,8 @@ def delete_data(request,pk):
 
 #Class Based 
 class classBased(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,) 
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,) 
     def get(self, request, pk=None , format=None):
         if pk is not None:
             try:
@@ -239,11 +239,11 @@ class AuthenticateUser(APIView):#Working man
         data = json.loads(request.body)
         user = USER_details.objects.filter(Q(email__iexact=data["email"])).first()
         if user is not None:
-            encrypted_password = user.password
-            decrypted_password = decrypt(bytes(encrypted_password, "utf-8"), SECRET_KEY.encode()).decode()
-            x= decrypted_password
-            if x == data["password"]:
-                token, created = Token.objects.get_or_create(user_id=user.id)
+            encrypted_password = user.password #here we taking the encrypted password form database
+            decrypted_password = decrypt(bytes(encrypted_password, "utf-8"), SECRET_KEY.encode()).decode() # we decrepting the encrypted password
+            x= decrypted_password # now storing the decrepted password in x variable
+            if x == data["password"]: # now here checking the user enter plane password and decrypted password is mathcing or not then only we are generating the token
+                token, created = Token.objects.get_or_create(user_id=user.id) # In here user=user wont consider for normal user it consider for abstractuser that's why we taken as user.id
                 mycol.insert_one({
                     "user_id": str(user.id),
                     "token": token.key,
