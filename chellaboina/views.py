@@ -1,6 +1,9 @@
+import jwt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+
+from narsimha import settings
 from .models import Employee,USER_details
 from .serializers import EmployeeSerializer,USER_Serializer
 from rest_framework_simplejwt.tokens import AccessToken
@@ -22,6 +25,9 @@ from drf_yasg.utils import swagger_auto_schema
 from .encryptdecrypt import encrypt,decrypt
 from pymongo import MongoClient
 import datetime
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError
+from datetime import datetime, timedelta
 client = MongoClient('mongodb://localhost:27017')
 SECRET_KEY='1234567'
 
@@ -71,7 +77,7 @@ def delete_data(request,pk):
 #Class Based 
 class classBased(APIView):
     # authentication_classes = (TokenAuthentication,)
-    # permission_classes = (IsAuthenticated,) 
+    permission_classes = [IsAuthenticated]
     def get(self, request, pk=None , format=None):
         if pk is not None:
             try:
@@ -226,6 +232,7 @@ class Signup(APIView):
 #Token Generations
 db = client['token']
 mycol = db["tokenDB"]      
+
 class AuthenticateUser(APIView):#Working man
     @swagger_auto_schema(request_body=openapi.Schema(
         type=openapi.TYPE_OBJECT,
@@ -239,18 +246,33 @@ class AuthenticateUser(APIView):#Working man
         data = json.loads(request.body)
         user = USER_details.objects.filter(Q(email__iexact=data["email"])).first()
         if user is not None:
-            encrypted_password = user.password #here we taking the encrypted password form database
-            decrypted_password = decrypt(bytes(encrypted_password, "utf-8"), SECRET_KEY.encode()).decode() # we decrepting the encrypted password
-            x= decrypted_password # now storing the decrepted password in x variable
-            if x == data["password"]: # now here checking the user enter plane password and decrypted password is mathcing or not then only we are generating the token
-                token, created = Token.objects.get_or_create(user_id=user.id) # In here user=user wont consider for normal user it consider for abstractuser that's why we taken as user.id
+            encrypted_password = user.password  
+            decrypted_password = decrypt(bytes(encrypted_password, "utf-8"), SECRET_KEY.encode()).decode()  
+            x= decrypted_password 
+            if x == data["password"]:  
+                token_payload = {
+                    'user_id': user.id,
+                    'exp': datetime.utcnow() + timedelta(minutes=settings.JWT_ACCESS_TOKEN_EXPIRATION)
+                     }  
+                access_token = jwt.encode(token_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
                 mycol.insert_one({
-                    "user_id": str(user.id),
-                    "token": token.key,
-                    "created_at": datetime.datetime.now()
-                    })
-                return JsonResponse({"status": "success", "msg": "user successfully authenticated", "token": token.key})
+                     "user_id": str(user.id),
+                     "token": access_token,
+                     })
+                return JsonResponse({"status": "success", "msg": "user successfully authenticated", "token": access_token})
             else:
                 return JsonResponse({"status": "error", "msg": "incorrect password"})
         else:
             return JsonResponse({"status": "error", "msg": "incorrect email"})
+
+
+
+ 
+            
+
+        
+ 
+
+
+
+ 

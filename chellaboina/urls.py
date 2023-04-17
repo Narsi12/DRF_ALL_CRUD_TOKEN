@@ -20,7 +20,10 @@ schema_view = get_schema_view(
 )
 
 
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 urlpatterns = [
     # basic router for crud 
     path(r'data', views.all_details, name='all_details'),
@@ -47,9 +50,12 @@ urlpatterns = [
     #signup and token generation
     path('signup',Signup.as_view(),name='signup'),
     path('AuthenticateUser',AuthenticateUser.as_view(),name='AuthenticateUser'),
+   #  path('referesh',RefreshTokenView.as_view(),name='refereshToken'),
 
     path(r'swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path(r'redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 
