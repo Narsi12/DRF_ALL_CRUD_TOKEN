@@ -28,12 +28,15 @@ import datetime
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 from datetime import datetime, timedelta
+from rest_framework_simplejwt.authentication import JWTAuthentication
 client = MongoClient('mongodb://localhost:27017')
 SECRET_KEY='1234567'
 
 #Function-Based 
 @api_view(['GET'])
 def all_details(request,pk=None):
+    # authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAuthenticated]
     id=pk
     if id is not None:
         try:
@@ -76,8 +79,8 @@ def delete_data(request,pk):
 
 #Class Based 
 class classBased(APIView):
-    # authentication_classes = (TokenAuthentication,)
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAuthenticated]
     def get(self, request, pk=None , format=None):
         if pk is not None:
             try:
@@ -255,11 +258,18 @@ class AuthenticateUser(APIView):#Working man
                     'exp': datetime.utcnow() + timedelta(minutes=settings.JWT_ACCESS_TOKEN_EXPIRATION)
                      }  
                 access_token = jwt.encode(token_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
+
+                refresh_token_payload = {
+                    'user_id': user.id,
+                    'exp': datetime.utcnow() + timedelta(days=settings.JWT_REFRESH_TOKEN_EXPIRATION)
+                    }
+                refresh_token = jwt.encode(refresh_token_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
+
                 mycol.insert_one({
-                     "user_id": str(user.id),
+                     "user_id": user.id,
                      "token": access_token,
                      })
-                return JsonResponse({"status": "success", "msg": "user successfully authenticated", "token": access_token})
+                return JsonResponse({"status": "success", "msg": "user successfully authenticated", "token": access_token,"refresh_token":refresh_token})
             else:
                 return JsonResponse({"status": "error", "msg": "incorrect password"})
         else:
