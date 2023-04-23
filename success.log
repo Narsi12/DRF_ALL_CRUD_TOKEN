@@ -1,0 +1,8 @@
+INFO 2023-04-23 15:16:45,807 autoreload 4496 24144 Watching for file changes with StatReloader
+INFO 2023-04-23 15:16:45,807 autoreload 4496 24144 Watching for file changes with StatReloader
+INFO 2023-04-23 15:16:49,511 autoreload 4496 24144 D:\drf_functon_based\narsimha\settings.py changed, reloading.
+INFO 2023-04-23 15:16:49,511 autoreload 4496 24144 D:\drf_functon_based\narsimha\settings.py changed, reloading.
+INFO 2023-04-23 15:16:52,705 autoreload 23728 20328 Watching for file changes with StatReloader
+INFO 2023-04-23 15:17:01,819 basehttp 23728 2092 "GET /data/3 HTTP/1.1" 200 5257
+INFO 2023-04-23 15:17:31,750 basehttp 23728 9220 "GET /data/4 HTTP/1.1" 200 5256
+INFO 2023-04-23 15:17:40,314 autoreload 23728 20328 D:\drf_functon_based\narsimha\settings.py changed, reloading.

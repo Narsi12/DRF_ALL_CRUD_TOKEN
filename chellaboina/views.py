@@ -1,8 +1,7 @@
 import jwt
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,authentication_classes,permission_classes
 from rest_framework.response import Response
 from rest_framework import status
-
 from narsimha import settings
 from .models import Employee,USER_details
 from .serializers import EmployeeSerializer,USER_Serializer
@@ -14,8 +13,7 @@ from drf_yasg import openapi
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
-from rest_framework import generics,mixins
-from rest_framework import viewsets
+from rest_framework import generics,mixins,viewsets
 from django.shortcuts import get_object_or_404
 from django.db.models import Q 
 import json
@@ -29,19 +27,20 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 from datetime import datetime, timedelta
 from rest_framework_simplejwt.authentication import JWTAuthentication
+import logging
+logger=logging.getLogger('success')
 client = MongoClient('mongodb://localhost:27017')
 SECRET_KEY='1234567'
 
 #Function-Based 
 @api_view(['GET'])
 def all_details(request,pk=None):
-    # authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsAuthenticated]
     id=pk
     if id is not None:
         try:
             employees=Employee.objects.get(id=pk)
             serializer=EmployeeSerializer(employees)
+            logger.info(f'Employee data is fetched with id is :{id} ')
             return Response(serializer.data)
         except employees.DoesNotExist:
             return Response({'Message':'Data not found '}, status=status.HTTP_404_NOT_FOUND)
@@ -52,6 +51,7 @@ def all_details(request,pk=None):
         return Response({'status':200, 'payload':serializer.data})
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def create_data(request):
     serializer=EmployeeSerializer(data=request.data)
     if serializer.is_valid():
@@ -79,8 +79,8 @@ def delete_data(request,pk):
 
 #Class Based 
 class classBased(APIView):
-    # authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsAuthenticated]
+    # authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
     def get(self, request, pk=None , format=None):
         if pk is not None:
             try:
@@ -218,9 +218,9 @@ class Signup(APIView):
         serializer = USER_Serializer(data=json.loads(request.body))
         if serializer.is_valid():
             data = serializer.validated_data
-            password = data['password']
-            password = encrypt(bytes(password, "utf-8"), SECRET_KEY.encode()).decode()
-            data['password'] = password
+            # password = data['password']
+            # password = encrypt(bytes(password, "utf-8"), SECRET_KEY.encode()).decode()
+            # data['password'] = password
             email = data['email']
             existing_user = USER_details.objects.filter(email=email).first()
             if existing_user is not None:
@@ -236,6 +236,12 @@ class Signup(APIView):
 db = client['token']
 mycol = db["tokenDB"]      
 
+ 
+
+JWT_SECRET_KEY = 'vqua1i2qh8&i!w&mfkeo^uex0v*(u)08x-x!q)ggv!+k94rxxy'
+JWT_ACCESS_TOKEN_EXPIRATION = 60
+JWT_REFRESH_TOKEN_EXPIRATION = 1440
+JWT_ALGORITHM = 'HS256'
 class AuthenticateUser(APIView):#Working man
     @swagger_auto_schema(request_body=openapi.Schema(
         type=openapi.TYPE_OBJECT,
@@ -245,31 +251,36 @@ class AuthenticateUser(APIView):#Working man
         }
     ))
     def post(self, request, format=None):
-        # import pdb;pdb.set_trace()
         data = json.loads(request.body)
         user = USER_details.objects.filter(Q(email__iexact=data["email"])).first()
         if user is not None:
-            encrypted_password = user.password  
-            decrypted_password = decrypt(bytes(encrypted_password, "utf-8"), SECRET_KEY.encode()).decode()  
-            x= decrypted_password 
-            if x == data["password"]:  
+            encrypted_password = user.password
+            decrypted_password = decrypt(bytes(encrypted_password, "utf-8"), SECRET_KEY.encode()).decode()
+            x = decrypted_password
+            if x == data["password"]:
                 token_payload = {
                     'user_id': user.id,
-                    'exp': datetime.utcnow() + timedelta(minutes=settings.JWT_ACCESS_TOKEN_EXPIRATION)
-                     }  
-                access_token = jwt.encode(token_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
+                    'exp': datetime.utcnow() + timedelta(minutes=JWT_ACCESS_TOKEN_EXPIRATION)
+                     }
+                access_token = jwt.encode(token_payload, JWT_SECRET_KEY, JWT_ALGORITHM)
 
                 refresh_token_payload = {
                     'user_id': user.id,
-                    'exp': datetime.utcnow() + timedelta(days=settings.JWT_REFRESH_TOKEN_EXPIRATION)
+                    'exp': datetime.utcnow() + timedelta(days=JWT_REFRESH_TOKEN_EXPIRATION)
                     }
-                refresh_token = jwt.encode(refresh_token_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
+                refresh_token = jwt.encode(refresh_token_payload, JWT_SECRET_KEY, JWT_ALGORITHM)
 
                 mycol.insert_one({
                      "user_id": user.id,
                      "token": access_token,
                      })
-                return JsonResponse({"status": "success", "msg": "user successfully authenticated", "token": access_token,"refresh_token":refresh_token})
+
+                return JsonResponse({
+                    "status": "success",
+                    "msg": "user successfully authenticated",
+                    "token": access_token.decode(),
+                    "refresh_token": refresh_token.decode()
+                })
             else:
                 return JsonResponse({"status": "error", "msg": "incorrect password"})
         else:
@@ -277,12 +288,5 @@ class AuthenticateUser(APIView):#Working man
 
 
 
- 
-            
-
-        
- 
 
 
-
- 

@@ -1,0 +1,20 @@
+INFO 2023-04-23 15:11:49,136 autoreload 17544 12596 Watching for file changes with StatReloader
+WARNING 2023-04-23 15:12:11,369 log 17544 23228 Not Found: /
+WARNING 2023-04-23 15:12:11,375 basehttp 17544 23228 "GET / HTTP/1.1" 404 5330
+WARNING 2023-04-23 15:12:11,680 log 17544 23228 Not Found: /favicon.ico
+WARNING 2023-04-23 15:12:11,682 basehttp 17544 23228 "GET /favicon.ico HTTP/1.1" 404 5381
+INFO 2023-04-23 15:12:40,186 basehttp 17544 6284 "GET /data HTTP/1.1" 200 8770
+INFO 2023-04-23 15:12:40,375 basehttp 17544 6284 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,395 basehttp 17544 6284 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,400 basehttp 17544 6696 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,401 basehttp 17544 21704 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,404 basehttp 17544 14432 "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,405 basehttp 17544 24744 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,406 basehttp 17544 6284 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,407 basehttp 17544 2720 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,410 basehttp 17544 6696 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,411 basehttp 17544 21704 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:40,546 basehttp 17544 21704 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2023-04-23 15:12:44,810 basehttp 17544 16324 "GET /data/1 HTTP/1.1" 200 5261
+INFO 2023-04-23 15:16:42,342 autoreload 17544 12596 D:\drf_functon_based\narsimha\settings.py changed, reloadin
+INFO 2023-04-23 15:17:43,774 autoreload 8148 23744 Watching for file changes with StatReloader
