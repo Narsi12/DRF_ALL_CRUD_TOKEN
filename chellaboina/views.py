@@ -1,16 +1,12 @@
 import jwt
-from rest_framework.decorators import api_view,authentication_classes,permission_classes
+from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 from narsimha import settings
 from .models import Employee,USER_details
 from .serializers import EmployeeSerializer,USER_Serializer
-from rest_framework_simplejwt.tokens import AccessToken
-from django.contrib.auth import authenticate
 from rest_framework.views import APIView
-from rest_framework.authtoken.models import Token
 from drf_yasg import openapi
-from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
 from rest_framework import generics,mixins,viewsets
@@ -23,8 +19,6 @@ from drf_yasg.utils import swagger_auto_schema
 from .encryptdecrypt import encrypt,decrypt
 from pymongo import MongoClient
 import datetime
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework_simplejwt.exceptions import TokenError
 from datetime import datetime, timedelta
 from rest_framework_simplejwt.authentication import JWTAuthentication
 import logging
