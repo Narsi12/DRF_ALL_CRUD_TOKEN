@@ -18,3 +18,856 @@ INFO 2023-04-23 15:12:40,546 basehttp 17544 21704 "GET /static/rest_framework/im
 INFO 2023-04-23 15:12:44,810 basehttp 17544 16324 "GET /data/1 HTTP/1.1" 200 5261
 INFO 2023-04-23 15:16:42,342 autoreload 17544 12596 D:\drf_functon_based\narsimha\settings.py changed, reloadin
 INFO 2023-04-23 15:17:43,774 autoreload 8148 23744 Watching for file changes with StatReloader
+INFO 2023-05-25 09:35:40,061 autoreload 10580 21416 Watching for file changes with StatReloader
+INFO 2023-06-05 15:12:24,122 autoreload 26728 23240 Watching for file changes with StatReloader
+WARNING 2023-06-05 15:12:44,007 log 26728 27712 Not Found: /
+WARNING 2023-06-05 15:12:44,011 basehttp 26728 27712 "GET / HTTP/1.1" 404 5330
+WARNING 2023-06-05 15:12:44,169 log 26728 27712 Not Found: /favicon.ico
+WARNING 2023-06-05 15:12:44,171 basehttp 26728 27712 "GET /favicon.ico HTTP/1.1" 404 5381
+ERROR 2023-06-05 15:13:06,381 log 26728 27712 Internal Server Error: /data
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\decorators\csrf.py", line 55, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\chellaboina\views.py", line 44, in all_details
+    handle_sleep.delay()
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 425, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 575, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 784, in send_task
+    with self.producer_or_acquire(producer) as P:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 919, in producer_or_acquire
+    producer, self.producer_pool.acquire, block=True,
+              ^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 1303, in producer_pool
+    return self.amqp.producer_pool
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\amqp.py", line 583, in producer_pool
+    self.app.connection_for_write()]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 816, in connection_for_write
+    return self._connection(url or self.conf.broker_write_url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 867, in _connection
+    return self.amqp.Connection(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\connection.py", line 201, in __init__
+    if not get_transport_cls(transport).can_parse_url:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\__init__.py", line 90, in get_transport_cls
+    _transport_cache[transport] = resolve_transport(transport)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\__init__.py", line 75, in resolve_transport
+    return symbol_by_name(transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\utils\imports.py", line 59, in symbol_by_name
+    module = imp(module_name, package=package, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\redis.py", line 266, in <module>
+    class PrefixedStrictRedis(GlobalKeyPrefixMixin, redis.Redis):
+                                                    ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'Redis'
+ERROR 2023-06-05 15:13:06,412 basehttp 26728 27712 "GET /data HTTP/1.1" 500 217066
+INFO 2023-06-05 15:13:50,679 autoreload 11304 8444 Watching for file changes with StatReloader
+ERROR 2023-06-05 15:14:21,907 log 11304 16380 Internal Server Error: /data
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\decorators\csrf.py", line 55, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\chellaboina\views.py", line 44, in all_details
+    handle_sleep.delay()
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 425, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 575, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 784, in send_task
+    with self.producer_or_acquire(producer) as P:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 919, in producer_or_acquire
+    producer, self.producer_pool.acquire, block=True,
+              ^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 1303, in producer_pool
+    return self.amqp.producer_pool
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\amqp.py", line 583, in producer_pool
+    self.app.connection_for_write()]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 816, in connection_for_write
+    return self._connection(url or self.conf.broker_write_url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 867, in _connection
+    return self.amqp.Connection(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\connection.py", line 201, in __init__
+    if not get_transport_cls(transport).can_parse_url:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\__init__.py", line 90, in get_transport_cls
+    _transport_cache[transport] = resolve_transport(transport)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\__init__.py", line 75, in resolve_transport
+    return symbol_by_name(transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\utils\imports.py", line 59, in symbol_by_name
+    module = imp(module_name, package=package, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\redis.py", line 266, in <module>
+    class PrefixedStrictRedis(GlobalKeyPrefixMixin, redis.Redis):
+                                                    ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'Redis'
+ERROR 2023-06-05 15:14:21,928 basehttp 11304 16380 "GET /data HTTP/1.1" 500 216982
+ERROR 2023-06-05 15:14:23,013 log 11304 16380 Internal Server Error: /data
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\decorators\csrf.py", line 55, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\chellaboina\views.py", line 44, in all_details
+    handle_sleep.delay()
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 425, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 575, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 784, in send_task
+    with self.producer_or_acquire(producer) as P:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 919, in producer_or_acquire
+    producer, self.producer_pool.acquire, block=True,
+              ^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 1303, in producer_pool
+    return self.amqp.producer_pool
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\amqp.py", line 583, in producer_pool
+    self.app.connection_for_write()]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 816, in connection_for_write
+    return self._connection(url or self.conf.broker_write_url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 867, in _connection
+    return self.amqp.Connection(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\connection.py", line 201, in __init__
+    if not get_transport_cls(transport).can_parse_url:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\__init__.py", line 90, in get_transport_cls
+    _transport_cache[transport] = resolve_transport(transport)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\__init__.py", line 75, in resolve_transport
+    return symbol_by_name(transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\utils\imports.py", line 59, in symbol_by_name
+    module = imp(module_name, package=package, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1206, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\transport\redis.py", line 266, in <module>
+    class PrefixedStrictRedis(GlobalKeyPrefixMixin, redis.Redis):
+                                                    ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'Redis'
+ERROR 2023-06-05 15:14:23,035 basehttp 11304 16380 "GET /data HTTP/1.1" 500 216982
+INFO 2023-06-05 15:15:12,071 autoreload 11304 8444 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 15:15:17,820 autoreload 28328 12440 Watching for file changes with StatReloader
+INFO 2023-06-05 15:15:20,192 basehttp 28328 24544 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 15:15:20,828 basehttp 28328 22916 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,840 basehttp 28328 22916 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,845 basehttp 28328 22916 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,847 basehttp 28328 12684 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,852 basehttp 28328 22916 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,869 basehttp 28328 13200 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,871 basehttp 28328 5204 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,872 basehttp 28328 15376 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,912 basehttp 28328 21544 "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:20,945 basehttp 28328 12684 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2023-06-05 15:15:21,068 basehttp 28328 12684 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2023-06-05 15:16:50,890 autoreload 28328 12440 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 15:16:56,007 autoreload 1972 12236 Watching for file changes with StatReloader
+INFO 2023-06-05 15:19:10,838 autoreload 1972 12236 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 15:19:16,966 autoreload 21204 28404 Watching for file changes with StatReloader
+INFO 2023-06-05 15:22:18,619 autoreload 21204 28404 D:\drf_functon_based\narsimha\settings.py changed, reloading.
+INFO 2023-06-05 15:22:22,951 autoreload 28624 21600 Watching for file changes with StatReloader
+INFO 2023-06-05 15:22:48,185 autoreload 28624 21600 D:\drf_functon_based\narsimha\settings.py changed, reloading.
+INFO 2023-06-05 15:22:52,332 autoreload 1512 27928 Watching for file changes with StatReloader
+INFO 2023-06-05 15:22:56,005 autoreload 1512 27928 D:\drf_functon_based\narsimha\settings.py changed, reloading.
+INFO 2023-06-05 15:23:00,203 autoreload 13272 8832 Watching for file changes with StatReloader
+INFO 2023-06-05 15:25:12,467 autoreload 11548 5204 Watching for file changes with StatReloader
+INFO 2023-06-05 15:26:12,161 autoreload 11548 5204 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 15:26:16,590 autoreload 6840 18420 Watching for file changes with StatReloader
+WARNING 2023-06-05 15:26:21,839 log 6840 16456 Not Found: /
+WARNING 2023-06-05 15:26:21,842 basehttp 6840 16456 "GET / HTTP/1.1" 404 5330
+INFO 2023-06-05 15:27:38,716 autoreload 6840 18420 D:\drf_functon_based\narsimha\settings.py changed, reloading.
+INFO 2023-06-05 15:28:18,054 autoreload 8572 13916 Watching for file changes with StatReloader
+ERROR 2023-06-05 15:30:24,043 log 8572 28400 Internal Server Error: /data
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 699, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 700, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 970, in _connect
+    for res in socket.getaddrinfo(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 961, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 119, in reconnect_on_error
+    yield
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 169, in _consume_from
+    self._pubsub.subscribe(key)
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\client.py", line 1634, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\client.py", line 1469, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 1457, in get_connection
+    connection.connect()
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 705, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 11001 connecting to redis:6379. getaddrinfo failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 699, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 700, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 970, in _connect
+    for res in socket.getaddrinfo(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 961, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 787, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 365, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 161, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 139, in start
+    self._consume_from(initial_task_id)
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 168, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 122, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 376, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\commands\core.py", line 1987, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\client.py", line 1266, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 1457, in get_connection
+    connection.connect()
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 705, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 11001 connecting to redis:6379. getaddrinfo failed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\decorators\csrf.py", line 55, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\chellaboina\views.py", line 44, in all_details
+    handle_sleep.delay()
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 425, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 575, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 785, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 11001 connecting to redis:6379. getaddrinfo failed.
+ERROR 2023-06-05 15:30:24,077 log 8572 24088 Internal Server Error: /data
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 699, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 700, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 970, in _connect
+    for res in socket.getaddrinfo(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 961, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 119, in reconnect_on_error
+    yield
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 169, in _consume_from
+    self._pubsub.subscribe(key)
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\client.py", line 1634, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\client.py", line 1469, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 1457, in get_connection
+    connection.connect()
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 705, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 11001 connecting to redis:6379. getaddrinfo failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 699, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 700, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 970, in _connect
+    for res in socket.getaddrinfo(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 961, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 787, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 365, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 161, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 139, in start
+    self._consume_from(initial_task_id)
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 168, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 122, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 376, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\commands\core.py", line 1987, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\client.py", line 1266, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 1457, in get_connection
+    connection.connect()
+  File "D:\drf_functon_based\venv\Lib\site-packages\redis\connection.py", line 705, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 11001 connecting to redis:6379. getaddrinfo failed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\decorators\csrf.py", line 55, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\chellaboina\views.py", line 44, in all_details
+    handle_sleep.delay()
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 425, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 575, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\base.py", line 785, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\narsimhac\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\drf_functon_based\venv\Lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 11001 connecting to redis:6379. getaddrinfo failed.
+ERROR 2023-06-05 15:30:24,225 basehttp 8572 28400 "GET /data HTTP/1.1" 500 277311
+INFO 2023-06-05 15:30:24,288 basehttp 8572 24088 - Broken pipe from ('127.0.0.1', 59206)
+INFO 2023-06-05 15:41:25,179 autoreload 8572 13916 D:\drf_functon_based\narsimha\settings.py changed, reloading.
+INFO 2023-06-05 15:41:31,093 autoreload 22844 19568 Watching for file changes with StatReloader
+INFO 2023-06-05 15:41:34,713 autoreload 22844 19568 D:\drf_functon_based\narsimha\settings.py changed, reloading.
+INFO 2023-06-05 15:41:39,060 autoreload 21952 28696 Watching for file changes with StatReloader
+INFO 2023-06-05 15:43:03,921 basehttp 21952 28128 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 15:44:10,844 autoreload 21952 28696 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 15:44:16,547 autoreload 21872 24944 Watching for file changes with StatReloader
+WARNING 2023-06-05 15:45:14,016 log 21872 8440 Not Found: /
+WARNING 2023-06-05 15:45:14,019 basehttp 21872 8440 "GET / HTTP/1.1" 404 5330
+INFO 2023-06-05 15:45:19,801 basehttp 21872 27956 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 15:48:24,416 basehttp 21872 28108 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 15:50:57,533 autoreload 21872 24944 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 15:51:01,989 autoreload 18164 15488 Watching for file changes with StatReloader
+INFO 2023-06-05 15:51:07,305 autoreload 18164 15488 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 15:51:11,628 autoreload 25908 18812 Watching for file changes with StatReloader
+INFO 2023-06-05 15:51:14,377 autoreload 25908 18812 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 15:51:18,438 autoreload 25760 28000 Watching for file changes with StatReloader
+INFO 2023-06-05 15:51:57,053 basehttp 25760 6312 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 15:52:27,711 autoreload 25760 28000 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 15:52:31,707 autoreload 26812 4452 Watching for file changes with StatReloader
+INFO 2023-06-05 15:54:42,936 autoreload 26812 4452 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 15:54:47,465 autoreload 14512 11188 Watching for file changes with StatReloader
+INFO 2023-06-05 15:54:51,321 autoreload 14512 11188 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 15:54:55,251 autoreload 15368 29604 Watching for file changes with StatReloader
+INFO 2023-06-05 15:55:02,442 autoreload 15368 29604 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 15:55:07,222 autoreload 25008 28512 Watching for file changes with StatReloader
+INFO 2023-06-05 15:58:15,661 basehttp 25008 7380 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 15:58:16,384 basehttp 25008 7380 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:00:44,073 autoreload 25008 28512 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 16:00:49,885 autoreload 16904 8132 Watching for file changes with StatReloader
+INFO 2023-06-05 16:00:53,364 autoreload 16904 8132 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 16:00:58,358 autoreload 27636 27372 Watching for file changes with StatReloader
+INFO 2023-06-05 16:01:06,235 autoreload 27636 27372 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 16:01:10,619 autoreload 28688 14664 Watching for file changes with StatReloader
+INFO 2023-06-05 16:01:15,006 autoreload 28688 14664 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 16:01:19,284 autoreload 28096 15000 Watching for file changes with StatReloader
+INFO 2023-06-05 16:01:23,746 autoreload 28096 15000 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 16:01:28,916 autoreload 28452 26668 Watching for file changes with StatReloader
+INFO 2023-06-05 16:01:32,420 autoreload 28452 26668 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 16:01:36,647 autoreload 27040 27784 Watching for file changes with StatReloader
+INFO 2023-06-05 16:01:41,717 autoreload 27040 27784 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 16:01:46,443 autoreload 27236 20856 Watching for file changes with StatReloader
+INFO 2023-06-05 16:02:30,775 basehttp 27236 27184 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:03:52,867 basehttp 27236 19156 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:05:59,115 basehttp 27236 20812 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:15:25,197 autoreload 27236 20856 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 16:19:46,770 autoreload 15484 27576 Watching for file changes with StatReloader
+INFO 2023-06-05 16:20:13,473 basehttp 15484 28068 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:20:50,032 autoreload 15484 27576 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 16:20:53,980 autoreload 1296 29556 Watching for file changes with StatReloader
+INFO 2023-06-05 16:21:58,695 basehttp 1296 11944 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:22:52,545 basehttp 1296 29040 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:22:53,105 basehttp 1296 29040 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:22:53,638 basehttp 1296 29040 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:22:54,140 basehttp 1296 29040 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:22:54,657 basehttp 1296 29040 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:22:55,159 basehttp 1296 29040 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:23:25,698 autoreload 1296 29556 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 16:23:29,862 autoreload 27704 29388 Watching for file changes with StatReloader
+INFO 2023-06-05 16:23:33,839 basehttp 27704 26020 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:23:34,526 basehttp 27704 29412 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:23:35,042 basehttp 27704 29412 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:23:35,552 basehttp 27704 29412 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:23:36,074 basehttp 27704 29412 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:23:45,294 autoreload 27704 29388 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 16:23:53,827 autoreload 2320 27044 Watching for file changes with StatReloader
+INFO 2023-06-05 16:29:28,822 autoreload 27936 29552 Watching for file changes with StatReloader
+INFO 2023-06-05 16:29:47,680 basehttp 27936 27536 "GET /data HTTP/1.1" 200 8770
+WARNING 2023-06-05 16:29:52,570 log 27936 27536 Not Found: /
+WARNING 2023-06-05 16:29:52,572 basehttp 27936 27536 "GET / HTTP/1.1" 404 5330
+INFO 2023-06-05 16:30:06,584 basehttp 27936 28420 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 16:30:18,480 autoreload 27936 29552 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-05 16:30:22,854 autoreload 1928 26888 Watching for file changes with StatReloader
+WARNING 2023-06-05 16:31:33,429 log 1928 5672 Not Found: /
+WARNING 2023-06-05 16:31:33,452 basehttp 1928 5672 "GET / HTTP/1.1" 404 5330
+INFO 2023-06-05 16:31:40,458 basehttp 1928 5672 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-05 17:53:35,123 autoreload 1928 26888 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 17:53:44,854 autoreload 12028 16304 Watching for file changes with StatReloader
+INFO 2023-06-05 17:53:52,403 autoreload 12028 16304 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-05 17:54:15,126 autoreload 23864 28852 Watching for file changes with StatReloader
+INFO 2023-06-05 18:16:16,928 basehttp 23864 14216 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 10:32:28,375 autoreload 25328 2644 Watching for file changes with StatReloader
+WARNING 2023-06-06 11:02:46,347 log 25328 19116 Not Found: /
+WARNING 2023-06-06 11:02:46,352 basehttp 25328 19116 "GET / HTTP/1.1" 404 5330
+WARNING 2023-06-06 11:02:47,175 log 25328 19116 Not Found: /favicon.ico
+WARNING 2023-06-06 11:02:47,232 basehttp 25328 19116 "GET /favicon.ico HTTP/1.1" 404 5381
+INFO 2023-06-06 11:08:16,904 basehttp 25328 24484 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:09:25,153 basehttp 25328 12664 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:17:15,018 autoreload 25328 2644 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:17:20,097 autoreload 16440 25724 Watching for file changes with StatReloader
+INFO 2023-06-06 11:18:09,327 autoreload 16440 25724 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:18:13,937 autoreload 23728 1360 Watching for file changes with StatReloader
+INFO 2023-06-06 11:18:18,631 autoreload 23728 1360 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:18:26,127 autoreload 3464 23188 Watching for file changes with StatReloader
+ERROR 2023-06-06 11:18:36,489 log 3464 13060 Internal Server Error: /data
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\decorators\csrf.py", line 55, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\chellaboina\views.py", line 44, in all_details
+    handle_sleep.apply_sync()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\local.py", line 143, in __getattr__
+    return getattr(self._get_current_object(), name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'handle_sleep' object has no attribute 'apply_sync'
+ERROR 2023-06-06 11:18:36,502 basehttp 3464 13060 "GET /data HTTP/1.1" 500 105025
+INFO 2023-06-06 11:19:40,956 autoreload 3464 23188 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:19:46,379 autoreload 17524 19772 Watching for file changes with StatReloader
+INFO 2023-06-06 11:19:56,387 autoreload 17524 19772 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:20:00,673 autoreload 21604 23496 Watching for file changes with StatReloader
+INFO 2023-06-06 11:20:07,323 autoreload 21604 23496 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:20:11,672 autoreload 4752 5916 Watching for file changes with StatReloader
+INFO 2023-06-06 11:20:13,621 autoreload 4752 5916 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:20:17,647 autoreload 18944 24736 Watching for file changes with StatReloader
+INFO 2023-06-06 11:20:22,195 autoreload 18944 24736 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:20:27,526 autoreload 25672 22264 Watching for file changes with StatReloader
+INFO 2023-06-06 11:20:31,443 autoreload 25672 22264 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:20:35,561 autoreload 7040 26544 Watching for file changes with StatReloader
+INFO 2023-06-06 11:20:41,656 autoreload 7040 26544 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:20:46,298 autoreload 1592 21296 Watching for file changes with StatReloader
+INFO 2023-06-06 11:20:52,944 autoreload 1592 21296 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:20:58,297 autoreload 17480 24824 Watching for file changes with StatReloader
+INFO 2023-06-06 11:21:20,727 autoreload 17480 24824 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:21:24,449 autoreload 20088 21260 Watching for file changes with StatReloader
+INFO 2023-06-06 11:21:27,954 autoreload 20088 21260 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:21:32,608 autoreload 23688 24052 Watching for file changes with StatReloader
+INFO 2023-06-06 11:21:37,667 autoreload 23688 24052 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:21:42,046 autoreload 1956 26296 Watching for file changes with StatReloader
+INFO 2023-06-06 11:21:46,294 autoreload 1956 26296 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:21:50,474 autoreload 24668 26216 Watching for file changes with StatReloader
+INFO 2023-06-06 11:22:08,851 autoreload 24668 26216 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:22:13,869 autoreload 23772 19328 Watching for file changes with StatReloader
+INFO 2023-06-06 11:22:21,077 autoreload 23772 19328 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:22:27,323 autoreload 25896 7824 Watching for file changes with StatReloader
+INFO 2023-06-06 11:22:44,857 autoreload 25896 7824 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:22:48,882 autoreload 26332 26552 Watching for file changes with StatReloader
+INFO 2023-06-06 11:22:52,871 autoreload 26332 26552 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:22:57,491 autoreload 22736 23796 Watching for file changes with StatReloader
+INFO 2023-06-06 11:23:04,373 autoreload 22736 23796 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:23:08,871 autoreload 3720 24560 Watching for file changes with StatReloader
+INFO 2023-06-06 11:23:12,953 autoreload 3720 24560 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:23:16,929 autoreload 21488 19960 Watching for file changes with StatReloader
+INFO 2023-06-06 11:23:21,055 autoreload 21488 19960 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:23:25,981 autoreload 9996 13700 Watching for file changes with StatReloader
+INFO 2023-06-06 11:23:31,749 autoreload 9996 13700 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:23:37,787 autoreload 16504 14516 Watching for file changes with StatReloader
+INFO 2023-06-06 11:23:41,770 autoreload 16504 14516 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:23:46,663 autoreload 6208 20276 Watching for file changes with StatReloader
+INFO 2023-06-06 11:23:51,369 autoreload 6208 20276 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:23:55,960 autoreload 21844 3924 Watching for file changes with StatReloader
+INFO 2023-06-06 11:24:00,269 autoreload 21844 3924 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:24:06,420 autoreload 26392 25432 Watching for file changes with StatReloader
+ERROR 2023-06-06 11:24:20,381 log 26392 21632 Internal Server Error: /data
+Traceback (most recent call last):
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\decorators\csrf.py", line 55, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\chellaboina\views.py", line 45, in all_details
+    res = add.delay()
+          ^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 425, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\drf_functon_based\venv\Lib\site-packages\celery\app\task.py", line 540, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: add() missing 2 required positional arguments: 'a' and 'b'
+ERROR 2023-06-06 11:24:20,395 basehttp 26392 21632 "GET /data HTTP/1.1" 500 110191
+INFO 2023-06-06 11:24:34,100 autoreload 26392 25432 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:24:38,998 autoreload 26536 24292 Watching for file changes with StatReloader
+INFO 2023-06-06 11:24:43,314 autoreload 26536 24292 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:24:48,415 autoreload 24260 11324 Watching for file changes with StatReloader
+INFO 2023-06-06 11:25:07,436 autoreload 24260 11324 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:25:11,699 autoreload 828 2672 Watching for file changes with StatReloader
+INFO 2023-06-06 11:25:18,452 autoreload 828 2672 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:25:22,954 autoreload 3180 24292 Watching for file changes with StatReloader
+INFO 2023-06-06 11:25:24,834 basehttp 3180 16440 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:26:43,119 basehttp 3180 16440 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:28:12,313 autoreload 3180 24292 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 11:28:18,858 autoreload 24664 8484 Watching for file changes with StatReloader
+INFO 2023-06-06 11:28:25,436 autoreload 24664 8484 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:28:30,506 autoreload 23904 10980 Watching for file changes with StatReloader
+INFO 2023-06-06 11:28:56,509 basehttp 23904 4540 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:35:13,089 autoreload 23904 10980 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:35:18,340 autoreload 15148 6940 Watching for file changes with StatReloader
+INFO 2023-06-06 11:35:23,561 autoreload 15148 6940 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:35:30,288 autoreload 12588 25724 Watching for file changes with StatReloader
+INFO 2023-06-06 11:35:33,504 autoreload 12588 25724 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:35:40,749 autoreload 6852 4540 Watching for file changes with StatReloader
+INFO 2023-06-06 11:35:44,232 autoreload 6852 4540 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:35:47,790 autoreload 1720 21604 Watching for file changes with StatReloader
+INFO 2023-06-06 11:36:03,113 autoreload 1720 21604 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:36:11,014 autoreload 20892 25288 Watching for file changes with StatReloader
+INFO 2023-06-06 11:36:13,495 autoreload 20892 25288 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:36:18,223 autoreload 12672 23000 Watching for file changes with StatReloader
+INFO 2023-06-06 11:36:24,838 autoreload 12672 23000 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:36:29,837 autoreload 17740 20240 Watching for file changes with StatReloader
+INFO 2023-06-06 11:36:32,052 basehttp 17740 23148 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:37:27,621 autoreload 17740 20240 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:37:33,232 autoreload 23460 26452 Watching for file changes with StatReloader
+INFO 2023-06-06 11:37:40,708 basehttp 23460 18172 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:37:53,820 autoreload 23048 23528 Watching for file changes with StatReloader
+WARNING 2023-06-06 11:37:59,178 log 23048 26332 Not Found: /
+WARNING 2023-06-06 11:37:59,187 basehttp 23048 26332 "GET / HTTP/1.1" 404 5330
+INFO 2023-06-06 11:38:04,272 basehttp 23048 12364 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:39:10,343 autoreload 23048 23528 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:39:15,507 autoreload 19324 18632 Watching for file changes with StatReloader
+INFO 2023-06-06 11:39:17,896 basehttp 19324 26196 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:40:21,260 autoreload 19324 18632 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:40:27,819 autoreload 25180 14948 Watching for file changes with StatReloader
+INFO 2023-06-06 11:40:33,054 basehttp 25180 14156 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:41:12,252 autoreload 25180 14948 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:41:16,034 autoreload 7272 25248 Watching for file changes with StatReloader
+INFO 2023-06-06 11:42:01,389 basehttp 7272 26096 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:43:07,487 autoreload 7272 25248 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:43:13,450 autoreload 23308 21432 Watching for file changes with StatReloader
+INFO 2023-06-06 11:43:19,258 autoreload 23308 21432 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 11:43:24,975 autoreload 26392 26588 Watching for file changes with StatReloader
+INFO 2023-06-06 11:43:36,382 basehttp 26392 14868 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 11:43:39,360 basehttp 26392 14868 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 12:35:31,378 autoreload 8080 25656 Watching for file changes with StatReloader
+INFO 2023-06-06 12:36:21,011 basehttp 8080 23716 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 12:37:05,961 autoreload 8080 25656 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 12:37:12,109 autoreload 25956 5072 Watching for file changes with StatReloader
+INFO 2023-06-06 12:48:37,829 autoreload 15832 26104 Watching for file changes with StatReloader
+WARNING 2023-06-06 12:48:52,692 log 15832 24616 Not Found: /
+WARNING 2023-06-06 12:48:52,695 basehttp 15832 24616 "GET / HTTP/1.1" 404 5330
+INFO 2023-06-06 14:28:23,038 autoreload 2820 7980 Watching for file changes with StatReloader
+INFO 2023-06-06 14:29:11,258 autoreload 2820 7980 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 14:29:15,298 autoreload 27028 20412 Watching for file changes with StatReloader
+INFO 2023-06-06 14:35:16,614 autoreload 27028 20412 D:\drf_functon_based\chellaboina\views.py changed, reloading.
+INFO 2023-06-06 14:35:21,779 autoreload 24496 15912 Watching for file changes with StatReloader
+INFO 2023-06-06 14:35:28,129 autoreload 24496 15912 D:\drf_functon_based\chellaboina\task.py changed, reloading.
+INFO 2023-06-06 14:35:32,027 autoreload 21664 3964 Watching for file changes with StatReloader
+INFO 2023-06-06 14:35:42,236 basehttp 21664 17956 "GET /data HTTP/1.1" 200 8770
+INFO 2023-06-06 18:40:48,040 autoreload 28272 6192 Watching for file changes with StatReloader
+WARNING 2023-06-06 18:40:54,790 log 28272 24768 Not Found: /
+WARNING 2023-06-06 18:40:54,792 basehttp 28272 24768 "GET / HTTP/1.1" 404 4974
+WARNING 2023-06-06 18:40:55,682 log 28272 14440 Not Found: /favicon.ico
+WARNING 2023-06-06 18:40:55,685 basehttp 28272 14440 "GET /favicon.ico HTTP/1.1" 404 5025
+INFO 2023-06-06 18:41:01,551 basehttp 28272 14440 "GET /data HTTP/1.1" 200 8770
+INFO 2023-07-10 18:24:26,260 autoreload 28704 28316 Watching for file changes with StatReloader
+WARNING 2023-07-10 18:24:36,677 log 28704 10932 Not Found: /
+WARNING 2023-07-10 18:24:36,679 basehttp 28704 10932 "GET / HTTP/1.1" 404 5330
+INFO 2023-07-10 18:24:47,567 basehttp 28704 21840 "GET /swagger/ HTTP/1.1" 200 2155
+INFO 2023-07-10 18:24:48,120 basehttp 28704 21840 "GET /swagger/?format=openapi HTTP/1.1" 200 8842
+INFO 2023-07-10 18:25:49,382 basehttp 28704 29652 "GET /api/create HTTP/1.1" 200 2
+INFO 2023-07-10 18:26:58,024 basehttp 28704 27752 "POST /signup HTTP/1.1" 201 40

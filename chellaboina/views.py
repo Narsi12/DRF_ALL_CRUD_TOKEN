@@ -17,18 +17,38 @@ from django.core.mail import EmailMessage
 from smtplib import SMTPRecipientsRefused
 from drf_yasg.utils import swagger_auto_schema
 from .encryptdecrypt import encrypt,decrypt
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from pymongo import MongoClient
 import datetime
 from datetime import datetime, timedelta
 from rest_framework_simplejwt.authentication import JWTAuthentication
 import logging
+from .task import handle_sleep
+import time
 logger=logging.getLogger('success')
+
 client = MongoClient('mongodb://localhost:27017')
 SECRET_KEY='1234567'
+db = client['token']
+mycol = db["tokenDB"]      
+JWT_SECRET_KEY = 'vqua1i2qh8&i!w&mfkeo^uex0v*(u)08x-x!q)ggv!+k94rxxy'
+JWT_ACCESS_TOKEN_EXPIRATION = 60
+JWT_REFRESH_TOKEN_EXPIRATION = 1440
+JWT_ALGORITHM = 'HS256'
 
 #Function-Based 
 @api_view(['GET'])
+# @method_decorator(cache_page(60*1))
 def all_details(request,pk=None):
+    res = handle_sleep.delay()
+    # print(res.get())
+    if res.ready():
+        result = res.get() 
+        print(result)
+    else:
+        print('on process')
+    # time.sleep(10)
     id=pk
     if id is not None:
         try:
@@ -227,15 +247,7 @@ class Signup(APIView):
 
 
 #Token Generations
-db = client['token']
-mycol = db["tokenDB"]      
-
  
-
-JWT_SECRET_KEY = 'vqua1i2qh8&i!w&mfkeo^uex0v*(u)08x-x!q)ggv!+k94rxxy'
-JWT_ACCESS_TOKEN_EXPIRATION = 60
-JWT_REFRESH_TOKEN_EXPIRATION = 1440
-JWT_ALGORITHM = 'HS256'
 class AuthenticateUser(APIView):#Working man
     @swagger_auto_schema(request_body=openapi.Schema(
         type=openapi.TYPE_OBJECT,

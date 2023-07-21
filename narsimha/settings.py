@@ -96,11 +96,22 @@ WSGI_APPLICATION = 'narsimha.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#      'default': {
+#          'ENGINE': 'djongo',
+#          'NAME': os.getenv('MONGODB_NAME'),
+#      }
+# }
+
 DATABASES = {
-     'default': {
-         'ENGINE': 'djongo',
-         'NAME': os.getenv('MONGODB_NAME'),
-     }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'employee_info',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
 }
 
 
@@ -222,3 +233,15 @@ LOGGING = {
         },
     },
 }
+
+# CACHES = {
+#         "default": {
+#             "BACKEND": "django.core.cache.backends.redis.RedisCache",
+#             "LOCATION": "redis://127.0.0.1:6379",
+#         }
+#     }
+
+CELERY_BROKER_URL = "redis://127.0.0.1:6379"
+CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379"
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SELERLIZER = 'json'
